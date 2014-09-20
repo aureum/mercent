@@ -1,17 +1,16 @@
 //
 //  DetailViewController.h
-//  Mercent
+//  Plain Ol' Notes
 //
-//  Created by Abhi Agarwal on 9/20/14.
-//  Copyright (c) 2014 Abhi Agarwal. All rights reserved.
+//  Created by LDC on 2/24/14.
+//  Copyright (c) 2014 Todd Perkins. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
+@property (weak, nonatomic) IBOutlet UITextView *tView;
 @end
-

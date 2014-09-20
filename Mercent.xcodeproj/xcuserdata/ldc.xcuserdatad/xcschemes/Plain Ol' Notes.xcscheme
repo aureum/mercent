@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "862F74AA19CE41C100DE3236"
-               BuildableName = "Mercent.app"
-               BlueprintName = "Mercent"
-               ReferencedContainer = "container:Mercent.xcodeproj">
+               BlueprintIdentifier = "63A7822818BBAC7E004AE5A5"
+               BuildableName = "Plain Ol&apos; Notes.app"
+               BlueprintName = "Plain Ol&apos; Notes"
+               ReferencedContainer = "container:Plain Ol&apos; Notes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "862F74C619CE41C100DE3236"
-               BuildableName = "MercentTests.xctest"
-               BlueprintName = "MercentTests"
-               ReferencedContainer = "container:Mercent.xcodeproj">
+               BlueprintIdentifier = "63A7824C18BBAC7E004AE5A5"
+               BuildableName = "Plain Ol&apos; NotesTests.xctest"
+               BlueprintName = "Plain Ol&apos; NotesTests"
+               ReferencedContainer = "container:Plain Ol&apos; Notes.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "862F74AA19CE41C100DE3236"
-            BuildableName = "Mercent.app"
-            BlueprintName = "Mercent"
-            ReferencedContainer = "container:Mercent.xcodeproj">
+            BlueprintIdentifier = "63A7822818BBAC7E004AE5A5"
+            BuildableName = "Plain Ol&apos; Notes.app"
+            BlueprintName = "Plain Ol&apos; Notes"
+            ReferencedContainer = "container:Plain Ol&apos; Notes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "862F74AA19CE41C100DE3236"
-            BuildableName = "Mercent.app"
-            BlueprintName = "Mercent"
-            ReferencedContainer = "container:Mercent.xcodeproj">
+            BlueprintIdentifier = "63A7822818BBAC7E004AE5A5"
+            BuildableName = "Plain Ol&apos; Notes.app"
+            BlueprintName = "Plain Ol&apos; Notes"
+            ReferencedContainer = "container:Plain Ol&apos; Notes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "862F74AA19CE41C100DE3236"
-            BuildableName = "Mercent.app"
-            BlueprintName = "Mercent"
-            ReferencedContainer = "container:Mercent.xcodeproj">
+            BlueprintIdentifier = "63A7822818BBAC7E004AE5A5"
+            BuildableName = "Plain Ol&apos; Notes.app"
+            BlueprintName = "Plain Ol&apos; Notes"
+            ReferencedContainer = "container:Plain Ol&apos; Notes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

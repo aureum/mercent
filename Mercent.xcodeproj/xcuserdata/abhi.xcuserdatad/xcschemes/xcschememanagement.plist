@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Mercent.xcscheme</key>
+		<key>Plain Ol' Notes.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>862F74AA19CE41C100DE3236</key>
+		<key>63A7822818BBAC7E004AE5A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>862F74C619CE41C100DE3236</key>
+		<key>63A7824C18BBAC7E004AE5A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
