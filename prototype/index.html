@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>groceries</title>
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="/lib/css/styles.css">
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		
+    </head>
+    <body>
+        <div class="container">
+			
+			
+			   <style>
+li {
+    list-style: none;
+}
+div[class^="iphone--"] {
+    background-color: #050505;
+    width: 300px;
+    height: 600px;
+    margin: 25px;
+    float: left;
+    border-radius: 40px;
+}
+.camera__speaker {
+    margin: 40px 60px;
+}
+.front__camera {
+    background-color: rgba(255,255,255,.25);
+    border-radius: 50px;
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin-left: 20px;
+    float: left;
+}
+.speaker__bar {
+    background-color: rgba(255,255,255,.25);
+    height: 10px;
+    width: 55px;
+    border-radius: 50px;
+    margin: auto;
+}
+.screen {
+    margin: 15px;
+    width: 270px;
+    height: 420px;
+    background-color: #222;
+    overflow-y: auto;
+    position: relative;
+}
+.home__button {
+    background-color: #111;
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    margin: 15px auto;
+    padding: 17px 0;
+}
+.cute__square {
+    border: 1px solid rgba(255,255,255,.75);
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin: 0 auto 0;
+}
+.top__bar {
+    background-color: #111;
+    height: 20px;
+    padding: 4px 0;
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 270px;
+}
+.top__bar > div[class$="__info"] {
+    display: inline-block;
+    width: 32%;
+}
+.center__info {
+    text-align: center;
+}
+.right__info {
+    text-align: right;
+}
+
+.groceries__interface {
+    width: 100%;
+    background-color: #D0F4F2;
+    min-height: 1000px;
+    padding: 30px 0;
+}
+.grocery__item {
+    padding: 10px;
+    background-color: rgba(255,255,255,.15);
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    overflow: auto;
+    position: relative;
+}
+.grocery__item.claimed--other {
+    background-color: rgba(255,255,255,.05);
+}
+.grocery__item.claimed--other .item__quantity {
+    background-color: rgba(255,255,255,.15);
+}
+.grocery__item.claimed--me {
+    background-color: rgba(255,255,255,.5);
+}
+.grocery__item.obtained--other, .grocery__item.obtained--me {
+    opacity: .15;
+    text-decoration: line-through;
+}
+.item__quantity {
+    background-color: rgba(255,255,255,0.35);
+    margin-left: -10px;
+    margin-top: -10px;
+    height: 100%;
+    width: 50px;
+    text-align: center;
+    float: left;
+    position: absolute;
+}
+.item__quantity p {
+    font-weight: 100;
+    font-size: 30px;
+    margin: 0;
+}
+.item__main {
+    margin-top: -10px;
+    float: left;
+    width: 160px;
+    padding: 10px 10px 0;
+    margin-left: 40px;
+}
+.item__brand, .item__name {
+    margin: 0;
+}
+.item__brand {
+    margin-bottom: 10px;
+}
+.item__name {
+    font-weight: bold;
+    letter-spacing: -1px;
+    font-size: 24px;
+    width: 200px;
+    padding: 0;
+    margin: 0;
+}
+button[class^='item__button'] {
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    position: relative;
+}
+button[class^='item__button']:focus {
+    outline: none;
+    border: 2px solid black;
+}
+.item__button--cta {
+    border: 2px dashed rgba(255,255,255,.5) !important;
+}
+.item__button--claimed {
+    border: 2px solid rgba(255,255,255,.5);
+}
+.item__button--obtained {
+    /*border: 2px solid green !important;
+    background-color: green !important;*/
+    background-size: contain;
+    background-position: center center;
+}
+.concentric__medium {
+    border: 2px solid rgba(255,255,255,.5);
+    width: 31px;
+    height: 31px;
+    display: block;
+    position: absolute;
+    border-radius: 50px;
+    top: 5px;
+    left: 5px;
+}
+.item__cta:focus {
+    
+}
+.item__toolbar {
+    float: right;
+    width: 50px;
+}
+.item__editor {
+    width: 200px;
+    margin-left: 50px;
+}
+.item__editor input {
+    width: 100%;
+    padding: 10px;
+    font: 14px "Helvetica";
+    background-color: rgba(255,255,255,.5);
+    border: none;
+    border-bottom: 3px solid rgba(255,255,255,.75);
+    margin-bottom: 5px;
+}
+.item__editor input.main {
+    font-size: 20px;
+}
+.item__editor input:focus {
+    outline: none;
+    background-color: rgba(255,255,255,.75);
+}
+.finisher__publisher, .finish__subscribe {
+    background-color: rgba(255,255,255,.25);
+    padding: 10px 0;
+}
+.edit__message {
+    width: 100%;
+    padding: 10px;
+    font: 18px "Helvetica";
+    background-color: rgba(255,255,255,.5);
+    border: none;
+    border-bottom: 3px solid rgba(255,255,255,.75);
+    margin-bottom: 5px;
+}
+.publish__message {
+    padding: 10px;
+    font: 14px "Helvetica";
+    border: 2px solid black;
+    float: right;
+    background-color: transparent;
+    border-radius: 100px;
+}
+div[class^='food-price__'] {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+div[class^='food-price__'] .price__title {
+    font-size: 75%;
+    font-weight: light;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+}
+</style>
+
+<div ng-app ng-controller="groceries">
+
+<div ng-repeat="user in users">
+
+<div class="iphone--4">
+    <div class="camera__speaker">
+        <div class="front__camera">&nbsp;</div>
+        <div class="speaker__bar"></div>
+    </div>
+    
+    <div class="screen">
+        <div class="top__bar">
+            <div class="left__info">
+                <span class="service__indicator">&bull;&bull;&bull;&bull;&bull;</span>
+                <span class="service__name">Verizon</span>
+                <span class="service__type">3G</span>
+            </div>
+            
+            <div class="center__info">
+                <span class="bar__time">5:00 PM</span>
+            </div>
+            
+            <div class="right__info">
+                <span class="bar__rotation">*</span> 
+                <span class="bar__timer">o</span>
+                <span class="battery__life">89%</span>
+                <span class="battery__image">[|||&nbsp;&nbsp;]-</span>
+            </div>
+        </div>
+        
+        <div class="groceries__interface" ng-style="{'background-color': user.color}">
+            <h1>Hello, {{user.name}}</h1>
+            <div class="food-price__total">
+                <h5 class="price__title">Total</h5>
+                {{ total | number:2 }}
+            </div>
+            <div class="food-price__budget">
+                <h5 class="price__title">Budget</h5>
+                {{ budget | number:2 }}
+            </div>
+            <div ng-show="complete">
+                <div class="finisher__publisher" ng-show="user.name === finisher">
+                    <p>Tell your team</p>
+                    <textarea class="edit__message" ng-model="finishMessage"></textarea><button class="publish__message" ng-click="publishMessage(finishMessage)">publish</button>
+                </div>
+                <div class="finish__subscribe" ng-show="user.name !== finisher">
+                    
+                    <p ng-hide="finalMessage !== null">{{finisher}} is updating...</p>
+                    
+                    <p ng-show="finalMessage !== null">{{finisher}} says:</p>
+                    <blockquote class="final__message">{{finalMessage}}</blockquote>
+                </div>
+                
+                
+                
+                <!--
+                
+                                <blockquote ng-bind="finishMessage"></blockquote>-->
+                
+            </div>
+        
+            <ul>
+                <li ng-repeat="item in groceries | orderBy:order" class="grocery__item" ng-class="{
+                    'claimed--other': item.status == 'claimed' && item.user !== user.name, 
+                    'claimed--me': item.status == 'claimed' && item.user == user.name,
+                    'obtained--other': item.status == 'obtained' && item.user !== user.name,
+                    'obtained--me': item.status == 'obtained' && item.user == user.name
+                }">
+                
+                    
+                
+                    <div class="item__quantity" ng-dblclick="editQuant(item, user)">
+                        <p ng-show="item.quantity">{{item.quantity}}</p>
+                        <p ng-hide="item.quantity">1</p>
+                        <small ng-show="item.price">${{item.price}}</small>
+                    </div>
+                    <div class="item__main" ng-dblclick="editMain(item, user)">
+                        <p ng-if="item.brand" class="item__brand">{{item.brand}}</p>
+                        <h3 class="item__name">{{item.item}}</h3>
+                    </div>
+                    
+                    <div class="item__editor">
+                        <div ng-if="item.editedQuant">
+                            <div class="arrow__left"></div>
+                            
+                            <input type="text" class="main" ng-model="item.quantity" />
+                            <input type="text" ng-model="item.price" />
+                            
+                        </div>
+                        
+                        <div ng-if="item.edited">
+                            <div class="arrow__up"></div>
+                            
+                            <input type="text" ng-model="item.brand" />
+                            <input type="text" class="main" ng-model="item.item" />
+                        </div>
+                    </div>
+
+                    <div class="item__toolbar">
+                        <!--
+                        {{item.status}}
+                                                {{item.user}}-->
+                        
+                        
+                        <span ng-show="item.status == (false || null)">
+                            <button class="item__button--cta" ng-click="claimItem(item.item, user)">&nbsp;</button>
+                        </span>
+                        
+                        <span ng-show="item.status == 'claimed'">
+                            <div ng-show="item.user == user.name">
+                                <button class="item__button--claimed" ng-click="obtainItem(item.item, user)">
+                                    <div class="concentric__medium">
+                                    </div>
+                                </button>
+                            </div>
+                            
+                            <div ng-hide="item.user == user.name">
+                                <button class="item__button--claimed" ng-click="obtainItem(item.item, user)" ng-style="{'border-color': item.userFull.color}">&nbsp;</button>
+                            </div>
+                            
+                        </span>
+                        
+                        <span ng-show="item.status == 'obtained'">
+                            <div ng-show="item.user == user.name">
+                                <button class="item__button--obtained">&nbsp;</button>
+                            </div>
+                            
+                            <div ng-hide="item.user == user.name">
+                                <button class="item__button--obtained" ng-style="{'border-color': item.userFull.color, 'background-image': 'url(' + item.userFull.image + ')'}">&nbsp;</button>
+                            </div>
+                        </span>
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        
+        
+    </div>
+    
+    <div class="home__button">
+        <div class="cute__square"></div>
+    </div>
+
+</div>
+
+<p></div></p>
+
+<!--
+<div class="iphone--5">
+    
+</div>-->
+
+<p></div></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+
+<script>
+
+var groceries = function($scope) {
+    $scope.budget = 100;
+    $scope.total = 0;
+    
+    $scope.users = [
+        {
+            "name": "Cheryl",
+            "color": "#cc00ff",
+            "image": "https://avatars3.githubusercontent.com/u/1840745?v=2&s=460"
+        },
+        {
+            "name": "Clayton",
+            "color": "#06AAEA",
+            "image": "https://avatars2.githubusercontent.com/u/5423195?v=2&s=460"
+        },
+        {
+            "name": "Shawn",
+            "color": "#252525",
+            "image": "https://avatars1.githubusercontent.com/u/7662839?v=2&s=460"
+        },
+        {
+            "name": "Johnny",
+            "color": "#33ff33",
+            "image": "http://placekitten.com/g/200/300"
+        }
+    ]
+    
+    $scope.groceries = [
+        {
+            "item": "Yogurt",
+            "brand": "Fage",
+            "price": 1.25,
+            "quantity": "5",
+            "order": 0
+        },
+        {
+            "item": "Smoked Salmon",
+            "brand": "Whole Foods",
+            "price": 11.99,
+            "order": 0
+        },
+        {
+            "item": "Sourdough",
+            "order": 0
+        },
+        {
+            "item": "Liverwurst",
+            "order": 0
+        }/*
+        ,
+                {
+                    "item": "Scallions",
+                    "order": 0
+                },
+                {
+                    "item": "Poppy bagels",
+                    "order": 0
+                },
+                {
+                    "item": "Vodka Sauce",
+                    "price": "10",
+                    "order": 0
+                },
+                {
+                    "item": "Pasta",
+                    "order": 0
+                },
+                {
+                    "item": "Milk",
+                    "order": 0
+                },
+                {
+                    "item": "Mushrooms",
+                    "order": 0
+                },
+                {
+                    "item": "Tomato",
+                    "order": 0
+                },
+                {
+                    "item": "Swiss Cheese",
+                    "order": 0
+                },
+                {
+                    "item": "Sliced ham",
+                    "order": 0
+                },
+                {
+                    "item": "Larabars",
+                    "order": 0
+                },
+                {
+                    "item": "Jasmine Tea",
+                    "order": 0
+                },
+                {
+                    "item": "Brown Rice",
+                    "order": 0
+                },
+                {
+                    "item": "Kale",
+                    "order": 0
+                },
+                {
+                    "item": "Broccoli",
+                    "order": 0
+                },
+                {
+                    "item": "Summer Squash",
+                    "order": 0
+                }*/
+        
+    ]
+    
+    $scope.order = '-order';
+    
+    $scope.obtainedItems = 0;
+    
+    $scope.complete = false;
+    
+    $scope.finisher = null;
+    
+    $scope.finishMessage = "We're done! Meet me by the checkout aisle 5.";
+    
+    $scope.finalMessage = null;
+    
+    $scope.publishMessage = function(msg) {
+        return $scope.finalMessage = msg;
+    }
+    
+    $scope.claimItem = function(item, user) {
+        for (var i = 0; i < $scope.groceries.length; i++) {
+            if (item === $scope.groceries[i].item) {
+                $scope.groceries[i].status = "claimed";
+                $scope.groceries[i].userFull = user;
+                $scope.groceries[i].user = user.name;
+            }
+        }
+    }
+    
+    $scope.obtainItem = function(item, user) {
+        for (var i = 0; i < $scope.groceries.length; i++) {
+            if (item === $scope.groceries[i].item) {
+                if (user.name === $scope.groceries[i].user) {
+                    $scope.groceries[i].status = "obtained";
+                    $scope.groceries[i].userFull = user;
+                    $scope.groceries[i].user = user.name;
+                    $scope.groceries[i].order = -1;
+                    $scope.obtainedItems++;
+                    
+                    var price = $scope.groceries[i].price ? $scope.groceries[i].price : 5;
+                    var quant = $scope.groceries[i].quantity ? $scope.groceries[i].quantity : 1;
+                    var total = price * quant;
+                    $scope.total += total;
+                    $scope.budget -= total;
+                
+                    if ($scope.obtainedItems === $scope.groceries.length) {
+                        $scope.finisher = user.name;
+                        $scope.complete = true;
+                    }
+                } else {
+                    $scope.claimItem(item, user);
+                }
+            } 
+        }
+    }
+    
+    $scope.editMain = function(item, user) {
+        console.log(item);
+        
+        if (item.edited === undefined || item.edited === false) {
+            item.edited = true;
+        } else {
+            item.edited = false;
+        }
+    }
+    
+    $scope.editQuant = function(item, user) {
+        console.log(item);
+        
+        if (item.editedQuant === undefined || item.editedQuant === false) {
+            item.editedQuant = true;
+        } else {
+            item.editedQuant = false;
+        }
+    }
+}
+
+</script>
+
+
+		
+        </div> 
+		<!-- replace these with CDN versions in prod -->
+		<script src="/lib/js/jquery.js"></script>
+		<script src="/lib/js/jquery.fittext.js"></script>
+		<script src="/lib/js/app.js"></script>
+    </body>
+</html>
